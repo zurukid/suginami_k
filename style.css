@@ -465,7 +465,7 @@ section { padding: 56px 0; }
   color: var(--text-black);
 }
 
-.policy-card--wide { grid-column: span 2; }
+.policy-card--wide { grid-column: span 1; }
 
 .policy-num {
   font-family: 'Inter', sans-serif;
