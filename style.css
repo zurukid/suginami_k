@@ -417,26 +417,21 @@ section { padding: 56px 0; }
 #policies { background: var(--bg-standard); }
 
 .policies-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  overflow: hidden;
 }
 
 .policy-card {
   background: var(--bg-white);
-  border: none;
-  border-radius: var(--r);
+  border-bottom: 1px solid var(--border);
   padding: 28px 24px;
-  box-shadow: 0 2px 12px rgba(58,13,34,0.10);
-  transition:
-    box-shadow 0.2s,
-    transform 0.2s,
-    opacity 0.5s ease;
+  transition: background 0.15s, opacity 0.5s ease;
 }
-.policy-card:hover {
-  box-shadow: 0 8px 28px rgba(58,13,34,0.18);
-  transform: translateY(-3px);
-}
+.policy-card:last-child { border-bottom: none; }
+.policy-card:hover { background: var(--lb-50); }
 .policy-card { cursor: pointer; }
 
 .policy-chevron {
