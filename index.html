@@ -65,7 +65,7 @@
           <div class="tl-label">杉並区生まれ</div>
         </div>
         <div class="tl-item" data-detail="日本大学法学部新聞学科を卒業後、ネットニュース運営企業に入社。編集長・収益担当部長を歴任し、約10年間インターネット上の情報発信を仕事の中心に置いた。" tabindex="0" role="button">
-          <div class="tl-year"></div>
+          <div class="tl-year">2013</div>
           <div class="tl-node"><span class="tl-dot"></span></div>
           <div class="tl-label">大学卒業→メディア編集長</div>
         </div>
@@ -89,11 +89,13 @@
         <button class="tl-detail-nav tl-detail-prev" id="tlDetailPrev" aria-label="前の出来事">
           <svg viewBox="0 0 10 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="10" height="16"><path d="M8 2L2 8l6 6"/></svg>
         </button>
-        <div class="tl-detail-meta">
-          <span class="tl-detail-year" id="tlDetailYear"></span>
-          <strong class="tl-detail-label" id="tlDetailLabel"></strong>
+        <div class="tl-detail-body">
+          <div class="tl-detail-meta">
+            <span class="tl-detail-year" id="tlDetailYear"></span>
+            <strong class="tl-detail-label" id="tlDetailLabel"></strong>
+          </div>
+          <p class="tl-detail-text" id="tlDetailText"></p>
         </div>
-        <p class="tl-detail-text" id="tlDetailText"></p>
         <button class="tl-detail-nav tl-detail-next" id="tlDetailNext" aria-label="次の出来事">
           <svg viewBox="0 0 10 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="10" height="16"><path d="M2 2l6 6-6 6"/></svg>
         </button>
@@ -436,6 +438,20 @@
 
       if (prevBtn) prevBtn.addEventListener('click', function() { if (activeIdx > 0) openDetail(activeIdx - 1); });
       if (nextBtn) nextBtn.addEventListener('click', function() { if (activeIdx < items.length - 1) openDetail(activeIdx + 1); });
+
+      // スワイプでタイムライン遷移
+      var swipeStartX = 0, swipeStartY = 0;
+      detail.addEventListener('touchstart', function(e) {
+        swipeStartX = e.touches[0].clientX;
+        swipeStartY = e.touches[0].clientY;
+      }, { passive: true });
+      detail.addEventListener('touchend', function(e) {
+        var dx = e.changedTouches[0].clientX - swipeStartX;
+        var dy = e.changedTouches[0].clientY - swipeStartY;
+        if (Math.abs(dx) < 48 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+        if (dx < 0 && activeIdx < items.length - 1) openDetail(activeIdx + 1);
+        if (dx > 0 && activeIdx > 0) openDetail(activeIdx - 1);
+      }, { passive: true });
 
       // デフォルトで「杉並区生まれ」を開く
       if (items.length > 0) openDetail(0);

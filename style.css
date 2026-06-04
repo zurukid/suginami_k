@@ -2476,16 +2476,22 @@ footer {
    v23 — モバイル表示バグ修正 + タイムラインナビ + anshin数字カラー
 ============================================================ */
 
-/* タイムライン detail パネル: 両側にナビボタン用のpadding */
+/* タイムライン detail パネル: flex水平配置でナビボタンを左右に固定 */
 .tl-detail {
-  padding: 14px 48px;
+  display: flex;
+  align-items: stretch;
+  padding: 0;
+}
+.tl-detail-body {
+  flex: 1;
+  padding: 14px 10px;
+  min-width: 0;
 }
 
-/* 左右ナビボタン */
+/* 左右ナビボタン: flexアイテムとして左右に配置 */
 .tl-detail-nav {
-  position: absolute;
-  top: 0; bottom: 0;
-  width: 40px;
+  flex-shrink: 0;
+  width: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2503,8 +2509,8 @@ footer {
   opacity: 0.2;
   cursor: default;
 }
-.tl-detail-prev { left: 0; border-radius: 0 0 0 var(--r, 6px); }
-.tl-detail-next { right: 0; border-radius: 0 var(--r, 6px) var(--r, 6px) 0; }
+.tl-detail-prev { border-radius: 0 0 0 var(--r, 6px); order: -1; }
+.tl-detail-next { border-radius: 0 var(--r, 6px) var(--r, 6px) 0; }
 
 /* anshin 01〜03 の数字色をバーガンディスケールに統一（リスクアイコン色と混同しないよう） */
 .anshin-points li:nth-child(1) { --point-color: var(--lb-600); }
