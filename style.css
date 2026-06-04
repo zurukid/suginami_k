@@ -2404,26 +2404,54 @@ footer {
 
 @media (max-width: 640px) {
   #hero {
-    background: linear-gradient(to bottom, #ffffff 0%, #ffffff 40%, #3A0D22 68%, #3A0D22 100%);
+    background: linear-gradient(to bottom, #ffffff 0%, #ffffff 38%, #9B2855 66%, #9B2855 100%);
   }
+  /* 写真: full幅・下半分に配置 */
   .hero-bg-fig {
-    width: 100%;
-    top: 38%;
+    left: -10%;
+    right: auto;
+    width: 120%;
+    top: 42%;
+    bottom: 0;
   }
   .hero-bg-fig img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
     object-position: top center;
+    margin-top: 0;
+    filter: drop-shadow(0 -8px 24px rgba(155, 40, 85, 0.35))
+            drop-shadow(0 20px 32px rgba(0, 0, 0, 0.22));
   }
+  /* テキスト: 上半分・左揃え */
   .hero-content {
     width: 100%;
+    height: auto;
     top: 0;
     bottom: auto;
-    height: 44%;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: flex-start;
-    padding: 0 28px 28px;
+    padding: 52px 28px 0;
+    gap: 6px;
+    padding-top: 52px;
+    padding-bottom: 0;
   }
-  .hero-catch { color: var(--lb-1200); }
-  .hero-role  { color: var(--lb-600); }
+  .hero-role {
+    font-size: 1rem;
+    letter-spacing: 0.12em;
+    margin-bottom: 6px;
+    color: var(--lb-600);
+  }
+  .hero-name-lg {
+    font-size: clamp(2.8rem, 11vw, 3.6rem);
+  }
+  .hero-catch {
+    font-size: clamp(1.8rem, 7.5vw, 2.4rem);
+    margin-top: 12px;
+    padding-bottom: 0;
+    color: var(--lb-1200);
+    text-wrap: wrap;
+  }
 }
 
 /* ============================================================
