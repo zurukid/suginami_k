@@ -2471,3 +2471,23 @@ footer {
     #6E4BA8 80px, #6E4BA8  96px
   );
 }
+
+/* ============================================================
+   v23 — モバイル表示バグ修正
+============================================================ */
+
+/* タイムライン: 古い縦型タイムラインのgap:12pxがモバイルで残存→リセット */
+.tl-item { gap: 0; }
+
+/* あんしんセクション: タイトル+NEWバッジが折り返して別行になる問題 */
+@media (max-width: 640px) {
+  .section-title-row {
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title-row .section-title {
+    font-size: 1.4rem;
+    line-height: 1.25;
+  }
+}
