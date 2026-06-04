@@ -1887,7 +1887,7 @@ footer {
 
 .section-title-row {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 16px;
   flex-wrap: wrap;
   margin-bottom: 24px;
