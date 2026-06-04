@@ -64,15 +64,10 @@
           <div class="tl-node"><span class="tl-dot"></span></div>
           <div class="tl-label">杉並区生まれ</div>
         </div>
-        <div class="tl-item" data-detail="日本大学法学部新聞学科を卒業。ジャーナリズムと法学を学び、情報と社会の関係を深く考えるようになった。" tabindex="0" role="button">
+        <div class="tl-item" data-detail="日本大学法学部新聞学科を卒業後、ネットニュース運営企業に入社。編集長・収益担当部長を歴任し、約10年間インターネット上の情報発信を仕事の中心に置いた。" tabindex="0" role="button">
           <div class="tl-year"></div>
           <div class="tl-node"><span class="tl-dot"></span></div>
-          <div class="tl-label">大学卒業</div>
-        </div>
-        <div class="tl-item" data-detail="ネットニュース運営企業に入社。編集長・収益担当部長を歴任し、約10年間インターネット上の情報発信を仕事の中心に置いた。" tabindex="0" role="button">
-          <div class="tl-year"></div>
-          <div class="tl-node"><span class="tl-dot"></span></div>
-          <div class="tl-label">メディア企業 編集長</div>
+          <div class="tl-label">大学卒業→メディア編集長</div>
         </div>
         <div class="tl-item" data-detail="フリーランスのコラムニスト・ネットメディア研究家として独立。SNS炎上・メディア論・地方自治を主要テーマに各媒体へ寄稿。" tabindex="0" role="button">
           <div class="tl-year">2022</div>
@@ -99,9 +94,6 @@
           <strong class="tl-detail-label" id="tlDetailLabel"></strong>
         </div>
         <p class="tl-detail-text" id="tlDetailText"></p>
-        <button class="tl-detail-close" id="tlDetailClose" aria-label="閉じる">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><path d="M18 6L6 18M6 6l12 12"/></svg>
-        </button>
         <button class="tl-detail-nav tl-detail-next" id="tlDetailNext" aria-label="次の出来事">
           <svg viewBox="0 0 10 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="10" height="16"><path d="M2 2l6 6-6 6"/></svg>
         </button>
@@ -417,7 +409,6 @@
       var detailYear = document.getElementById('tlDetailYear');
       var detailLabel = document.getElementById('tlDetailLabel');
       var detailText = document.getElementById('tlDetailText');
-      var closeBtn = document.getElementById('tlDetailClose');
       var prevBtn = document.getElementById('tlDetailPrev');
       var nextBtn = document.getElementById('tlDetailNext');
       var activeIdx = -1;
@@ -436,22 +427,13 @@
         item.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
       }
 
-      function closeDetail() {
-        if (activeIdx >= 0) { items[activeIdx].classList.remove('tl-item--active'); activeIdx = -1; }
-        detail.hidden = true;
-      }
-
       items.forEach(function(item, i) {
-        item.addEventListener('click', function() {
-          if (i === activeIdx) { closeDetail(); return; }
-          openDetail(i);
-        });
+        item.addEventListener('click', function() { openDetail(i); });
         item.addEventListener('keydown', function(e) {
-          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); item.click(); }
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openDetail(i); }
         });
       });
 
-      if (closeBtn) closeBtn.addEventListener('click', closeDetail);
       if (prevBtn) prevBtn.addEventListener('click', function() { if (activeIdx > 0) openDetail(activeIdx - 1); });
       if (nextBtn) nextBtn.addEventListener('click', function() { if (activeIdx < items.length - 1) openDetail(activeIdx + 1); });
 
