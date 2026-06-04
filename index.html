@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=5">
+  <link rel="stylesheet" href="style.css?v=22">
 </head>
 <body>
 
@@ -18,9 +18,10 @@
       <a href="#" class="logo">きどゆずる</a>
       <nav id="nav">
         <a href="#profile" onclick="closeMenu()">プロフィール</a>
-        <a href="#policies" onclick="closeMenu()">政策</a>
+        <a href="#anshin" onclick="closeMenu()">政策提言2026</a>
+        <a href="#policies" onclick="closeMenu()">基本政策</a>
         <a href="#philosophy" onclick="closeMenu()">理念</a>
-        <a href="#links" onclick="closeMenu()">SNS</a>
+        <a href="#links" onclick="closeMenu()">SNS・リンク</a>
       </nav>
       <button class="menu-btn" id="menuBtn" aria-label="メニューを開く">
         <span></span><span></span><span></span>
@@ -30,34 +31,21 @@
 
   <!-- ========== HERO ========== -->
   <section id="hero">
-    <div class="hero-inner">
-      <div class="hero-text">
-        <p class="hero-district animate-1">杉並区民・無所属・コラムニスト</p>
-        <div class="hero-name animate-2">
-          <div class="hero-kanji">きどゆずる</div>
-        </div>
-        <p class="hero-sub animate-4">話したくなる、杉並に。</p>
-      </div>
-      <div class="hero-photo animate-2">
-        <div class="hero-photo-inner">
-          <!-- バストアップ写真を hero.jpg として保存してください -->
-          <img src="hero.png" alt="きどゆずる" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-          <div class="hero-photo-placeholder">
-            <span>バストアップ写真<br>hero.jpg</span>
-          </div>
-        </div>
-      </div>
+    <div class="hero-bg-fig">
+      <img src="hero2.png" alt="きどゆずる" onerror="this.style.display='none'">
+    </div>
+    <div class="hero-content animate-1">
+      <p class="hero-role">杉並区民・無所属</p>
+      <p class="hero-name-lg">きどゆずる</p>
+      <h1 class="hero-catch">話したくなる、<br>杉並に。</h1>
     </div>
   </section>
 
   <!-- ========== SCROLL HINT (fixed) ========== -->
   <a href="#profile" class="scroll-hint" id="scrollHint" aria-label="プロフィールや政策を見る">
-    <span class="scroll-hint-text">プロフィールや政策を見る</span>
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" width="38" height="38">
-      <path d="M6 9l6 6 6-6"/>
-    </svg>
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" width="38" height="38" style="margin-top:-19px;opacity:0.4">
-      <path d="M6 9l6 6 6-6"/>
+    <svg viewBox="0 0 24 30" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="26" height="30">
+      <path d="M5 6l7 7 7-7"/>
+      <path d="M5 15l7 7 7-7"/>
     </svg>
   </a>
 
@@ -66,110 +54,218 @@
     <img src="photo.png" alt="" id="mascotImg">
   </div>
 
-  <!-- ========== PROFILE ========== -->
-  <section id="profile">
+  <!-- ========== PROFILE (timeline strip) ========== -->
+  <section id="profile" class="profile-strip">
     <div class="container">
-      <p class="section-en">PROFILE</p>
-      <h2 class="section-title">プロフィール</h2>
-      <div class="profile-layout fade-in">
-        <div class="profile-body">
-          <div class="profile-meta">
-            <span>1988年5月生まれ</span>
-            <span>東京都杉並区出身・在住</span>
-            <span>日本大学法学部新聞学科 卒業</span>
-          </div>
-          <p>ネットニュース運営企業に入社後、編集長および収益担当部長職を歴任。約10年間、インターネットでの情報発信を仕事の中心に置いてきました。2022年秋に独立し、フリーランスのコラムニスト・ネットメディア研究家として活動しています。</p>
-          <p>「信じたい『事実』だけ信じる人の増加」が社会問題になる中、SNS炎上・メディア論・地方自治を主要テーマとして各媒体に寄稿しています。眉間にシワを寄せず、わかりやすい言葉で「構造を解説する」スタイルを貫いています。</p>
-          <p>2023年4月の杉並区議選に出馬経験があります。無所属です。</p>
+      <span class="sec-tag">プロフィール</span>
+      <div class="tl-wrap" id="tlWrap">
+        <div class="tl-item" data-detail="東京都杉並区で生まれ育つ。地元の公立校で過ごした原体験が、今の政治活動の根にある。" tabindex="0" role="button">
+          <div class="tl-year">1988</div>
+          <div class="tl-node"><span class="tl-dot"></span></div>
+          <div class="tl-label">杉並区生まれ</div>
+        </div>
+        <div class="tl-item" data-detail="日本大学法学部新聞学科を卒業。ジャーナリズムと法学を学び、情報と社会の関係を深く考えるようになった。" tabindex="0" role="button">
+          <div class="tl-year"></div>
+          <div class="tl-node"><span class="tl-dot"></span></div>
+          <div class="tl-label">大学卒業</div>
+        </div>
+        <div class="tl-item" data-detail="ネットニュース運営企業に入社。編集長・収益担当部長を歴任し、約10年間インターネット上の情報発信を仕事の中心に置いた。" tabindex="0" role="button">
+          <div class="tl-year"></div>
+          <div class="tl-node"><span class="tl-dot"></span></div>
+          <div class="tl-label">メディア企業 編集長</div>
+        </div>
+        <div class="tl-item" data-detail="フリーランスのコラムニスト・ネットメディア研究家として独立。SNS炎上・メディア論・地方自治を主要テーマに各媒体へ寄稿。" tabindex="0" role="button">
+          <div class="tl-year">2022</div>
+          <div class="tl-node"><span class="tl-dot"></span></div>
+          <div class="tl-label">独立・コラムニスト</div>
+        </div>
+        <div class="tl-item tl-item--accent" data-detail="杉並区議選に「たぶん無所属」として出馬。既成政党に頼らず、区民の目線で地域課題の解決を訴えた。" tabindex="0" role="button">
+          <div class="tl-year">2023</div>
+          <div class="tl-node"><span class="tl-dot tl-dot--accent"></span></div>
+          <div class="tl-label">杉並区議選 出馬</div>
+        </div>
+        <div class="tl-item tl-item--future" data-detail="杉並区議補選のタイミングに合わせ、落選経験者の立場から「もし再挑戦するなら」をテーマに政策提言を開始しました。" tabindex="0" role="button">
+          <div class="tl-year">2026</div>
+          <div class="tl-node"><span class="tl-dot tl-dot--future"></span></div>
+          <div class="tl-label">？？？</div>
         </div>
       </div>
+      <div class="tl-detail" id="tlDetail" hidden>
+        <div class="tl-detail-meta">
+          <span class="tl-detail-year" id="tlDetailYear"></span>
+          <strong class="tl-detail-label" id="tlDetailLabel"></strong>
+        </div>
+        <p class="tl-detail-text" id="tlDetailText"></p>
+        <button class="tl-detail-close" id="tlDetailClose" aria-label="閉じる">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ANSHIN MAP ========== -->
+  <section id="anshin">
+    <div class="container">
+      <span class="sec-tag">政策提言2026</span>
+      <div class="section-title-row">
+        <h2 class="section-title">あんしんが見える街に</h2>
+        <span class="proposal-label">NEW!</span>
+      </div>
+
+      <div class="anshin-kv fade-in">
+        <p class="anshin-sub">気象APIとオープンデータで災害リスクをリアルタイム可視化</p>
+      </div>
+
+      <div class="risk-grid fade-in" style="transition-delay:0.05s">
+        <div class="risk-item">
+          <div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M12 2C8.5 5.5 6 9 6 12.5a6 6 0 0 0 12 0C18 9 15.5 5.5 12 2z"/></svg></div>
+          <div class="risk-name">水害</div>
+        </div>
+        <div class="risk-item">
+          <div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M3 10L12 3l9 7v11H3V10z"/><path d="M9 21v-6h6v6"/></svg></div>
+          <div class="risk-name">震災</div>
+        </div>
+        <div class="risk-item">
+          <div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M12 22c4.4 0 8-3.6 8-8 0-5-4-8-8-12-4 4-8 7-8 12 0 4.4 3.6 8 8 8z"/><path d="M12 22c2.2 0 4-1.8 4-4 0-2.5-2-4-4-6-2 2-4 3.5-4 6 0 2.2 1.8 4 4 4z"/></svg></div>
+          <div class="risk-name">火災</div>
+        </div>
+        <div class="risk-item">
+          <div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M3 20l6-10 3 5 2.5-4L21 20H3z"/></svg></div>
+          <div class="risk-name">土砂</div>
+        </div>
+        <div class="risk-item">
+          <div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></div>
+          <div class="risk-name">熱中症</div>
+        </div>
+      </div>
+
+      <ul class="anshin-points fade-in" style="transition-delay:0.1s">
+        <li><span class="apt-num">01</span>「〇〇橋が危険水位」→ 地図上の位置と今後の見通しで届ける</li>
+        <li><span class="apt-num">02</span>避難所の開設・閉鎖状況をリアルタイム更新</li>
+        <li><span class="apt-num">03</span>必要なデータの開示を国・東京都へ働きかける</li>
+      </ul>
+
+      <p class="anshin-body fade-in" style="transition-delay:0.15s">
+        気象APIとオープンデータを組み合わせ、杉並区のすべての災害リスクを1つのダッシュボード「杉並あんしんマップ」で「今」見られるようにします。現在の防災メールは「〇〇橋が危険水位」程度の情報ですが、地図上の位置・今後の見通しを伝える形に改善します。位置情報を利用すれば、自宅へのリスクも把握できます。雨量・河川水位は順次更新。湿度と風速データを木造密集地域のハザード情報と重ね合わせ「今日の火災延焼リスク」も可視化。避難所の開設・閉鎖状況もリアルタイムで反映します。
+      </p>
     </div>
   </section>
 
   <!-- ========== POLICIES ========== -->
   <section id="policies">
     <div class="container">
-      <p class="section-en">POLICIES</p>
-      <h2 class="section-title">政策提言</h2>
-
-      <div class="policy-new fade-in">
-        <div class="policy-new-badge">2026 新提言</div>
-        <div class="policy-new-card">
-          <h3 class="policy-new-title">あんしんが見える街に</h3>
-          <ul class="policy-new-points">
-            <li>水害・震災・火災・土砂・熱中症、区民を襲うリスクをリアルタイム可視化</li>
-            <li>避難所の開設・閉鎖状況をリアルタイム更新</li>
-            <li>必要なデータの開示を国・東京都へ働きかける</li>
-          </ul>
-          <p class="policy-new-body">気象APIとオープンデータを組み合わせ、杉並区のすべての災害リスクを1つのダッシュボード「杉並あんしんマップ」で「今」見られるようにします。現在の防災メールは「〇〇橋が危険水位」程度の情報ですが、地図上の位置・今後の見通しを伝える形に改善します。位置情報を利用すれば、自宅へのリスクも把握できます。雨量・河川水位は順次更新。湿度と風速データを木造密集地域のハザード情報と重ね合わせ「今日の火災延焼リスク」も可視化。避難所の開設・閉鎖状況もリアルタイムで反映します。</p>
-        </div>
-      </div>
-
-      <p class="section-sub-label">基本提言</p>
+      <span class="sec-tag">これまでの政策提言</span>
       <div class="policies-grid">
 
         <article class="policy-card fade-in">
-          <div class="policy-num">01</div>
-          <h3>欲しい時に、<br>必要な情報を</h3>
-          <ul>
-            <li>スマートフォン講習による世代格差解消</li>
-            <li>災害時のSNS迅速発信体制構築</li>
-          </ul>
-          <svg class="policy-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><path d="M6 9l6 6 6-6"/></svg>
+          <div class="policy-card-header">
+            <div class="policy-card-htxt">
+              <div class="policy-num">01</div>
+              <h3>欲しい時に、<br>必要な情報を</h3>
+            </div>
+            <div class="policy-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" width="20" height="20"><path d="M8.288 15.038a5.25 5.25 0 0 1 7.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12 20.25h.008v.008H12v-.008Z"/></svg></div>
+          </div>
+          <div class="policy-card-body">
+            <ul>
+              <li>スマートフォン講習による世代格差解消</li>
+              <li>災害時のSNS迅速発信体制構築</li>
+            </ul>
+            <svg class="policy-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
           <div class="policy-detail">
             <p class="policy-detail-body">ゆうゆう館や地域区民センターのみならず、地元商店や若年層も巻き込んだ「街ぐるみでのデジタル化」を進めます。また、気象警報が発令された際にリアルタイムでSNS発信がされていない現状を改善。防災・防犯情報をより迅速に届けられる体制を整えます。</p>
           </div>
         </article>
 
         <article class="policy-card fade-in" style="transition-delay: 0.1s">
-          <div class="policy-num">02</div>
-          <h3>リテラシー向上で<br>「考える人材」へ</h3>
-          <ul>
-            <li>デマ対策とネット炎上回避スキル育成</li>
-            <li>インクルーシブ教育・金融教育推進</li>
-          </ul>
-          <svg class="policy-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><path d="M6 9l6 6 6-6"/></svg>
+          <div class="policy-card-header">
+            <div class="policy-card-htxt">
+              <div class="policy-num">02</div>
+              <h3>リテラシー向上で<br>「考える人材」へ</h3>
+            </div>
+            <div class="policy-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" width="20" height="20"><path d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/></svg></div>
+          </div>
+          <div class="policy-card-body">
+            <ul>
+              <li>デマ対策とネット炎上回避スキル育成</li>
+              <li>インクルーシブ教育・金融教育推進</li>
+            </ul>
+            <svg class="policy-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
           <div class="policy-detail">
             <p class="policy-detail-body">デマに踊らされない思考力や、ネット炎上を回避するリテラシーを育成します。インクルーシブ教育とは、障害の有無などあらゆる違いを問わず、ともに学ぶことができる教育スタイルのこと。また、2級ファイナンシャル・プランニング技能士として、成長過程に正しい金融知識を身につけることの重要性を強く感じています。学童クラブ・地域ボランティアで育った立場から、学校以外の居場所も守り続けます。</p>
           </div>
         </article>
 
         <article class="policy-card fade-in" style="transition-delay: 0.2s">
-          <div class="policy-num">03</div>
-          <h3>区議会に<br>「ビジネス感覚」を</h3>
-          <ul>
-            <li>社会人経験を生かした現実的政策</li>
-            <li>本会議YouTube配信と議事録AI公開</li>
-            <li>報酬削減と定数増による議会構成改革</li>
-          </ul>
-          <svg class="policy-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><path d="M6 9l6 6 6-6"/></svg>
+          <div class="policy-card-header">
+            <div class="policy-card-htxt">
+              <div class="policy-num">03</div>
+              <h3>区議会に<br>「ビジネス感覚」を</h3>
+            </div>
+            <div class="policy-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" width="20" height="20"><path d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"/></svg></div>
+          </div>
+          <div class="policy-card-body">
+            <ul>
+              <li>社会人経験を生かした現実的政策</li>
+              <li>本会議YouTube配信と議事録AI公開</li>
+              <li>報酬削減と定数増による議会構成改革</li>
+            </ul>
+            <svg class="policy-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
           <div class="policy-detail">
             <p class="policy-detail-body">民間で約10年間培ったビジネス感覚を区政に持ち込みます。本会議・委員会はYouTubeで全公開、議事録はAI活用で即日公開。イデオロギーではなく現実路線で、民間活用も積極的に推進します。報酬削減と定数増により、少ない歳費でも多様な背景を持つ議員が参加できる、カラフルな議会を実現します。</p>
           </div>
         </article>
 
         <article class="policy-card fade-in" style="transition-delay: 0.1s">
-          <div class="policy-num">04</div>
-          <h3>お金をかけずに<br>産業振興</h3>
-          <ul>
-            <li>空きスペース活用による美術館化</li>
-            <li>ふるさと納税による関係人口創出</li>
-          </ul>
-          <svg class="policy-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><path d="M6 9l6 6 6-6"/></svg>
+          <div class="policy-card-header">
+            <div class="policy-card-htxt">
+              <div class="policy-num">04</div>
+              <h3>お金をかけずに<br>産業振興</h3>
+            </div>
+            <div class="policy-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" width="20" height="20"><path d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z"/></svg></div>
+          </div>
+          <div class="policy-card-body">
+            <ul>
+              <li>空きスペース活用による美術館化</li>
+              <li>ふるさと納税による関係人口創出</li>
+            </ul>
+            <svg class="policy-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
           <div class="policy-detail">
             <p class="policy-detail-body">空き店舗・空き地など未活用スペースを活用し、杉並区全域をアートの発信拠点に。財源にはふるさと納税を積極活用。「形に残らない体験」を返礼品にすることで、財源確保とシティプロモーションを同時に実現し、区外からの関係人口・寄り道消費を呼び込みます。</p>
           </div>
         </article>
 
-        <article class="policy-card policy-card--wide fade-in" style="transition-delay: 0.2s">
-          <div class="policy-num">05</div>
-          <h3>あらゆる違いが<br>生きる街に</h3>
-          <ul>
-            <li>性別・年齢・信条を問わない多様性社会構築</li>
-          </ul>
-          <svg class="policy-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><path d="M6 9l6 6 6-6"/></svg>
+        <article class="policy-card fade-in" style="transition-delay: 0.2s">
+          <div class="policy-card-header">
+            <div class="policy-card-htxt">
+              <div class="policy-num">05</div>
+              <h3>あらゆる違いが<br>生きる街に</h3>
+            </div>
+            <div class="policy-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" width="20" height="20"><path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"/></svg></div>
+          </div>
+          <div class="policy-card-body">
+            <ul>
+              <li>性別・年齢・信条を問わない多様性社会構築</li>
+            </ul>
+            <svg class="policy-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
           <div class="policy-detail">
             <p class="policy-detail-body">性別・年齢・信条・障害の有無などに関わらず、誰もが「自分らしく」いられる街をつくります。あらゆる違いを力に変える、インクルーシブな杉並区を目指します。</p>
+          </div>
+        </article>
+
+        <article class="policy-card policy-card--comingsoon fade-in" style="transition-delay: 0.3s">
+          <div class="policy-card-header">
+            <div class="policy-card-htxt">
+              <div class="policy-num">＋</div>
+              <h3>まだまだ<br>政策更新中！</h3>
+            </div>
+          </div>
+          <div class="policy-card-body">
+            <p class="policy-comingsoon-text">SNS・街頭でのご意見をもとに随時追加予定</p>
           </div>
         </article>
 
@@ -180,12 +276,11 @@
   <!-- ========== PHILOSOPHY ========== -->
   <section id="philosophy">
     <div class="container">
-      <p class="section-en">STANCE</p>
-      <h2 class="section-title">「どっち？」でない<br>選択肢を。</h2>
+      <h2 class="section-title">「どっち？」でない選択肢を。</h2>
       <div class="philosophy-body fade-in">
-        <p>「信じたい『事実』だけ信じる人」の増加が気になっています。異なる価値観を否定し合う空気が、気づかないうちに日常に染み込んでいます。眉間にシワを寄せず、わかりやすい言葉で「構造を解説する」人間が議会に入ることに、意味があると思っています。</p>
-        <p>記者・編集者として、あらゆる政治思想と向き合ってきました。完全な中立など難しいと承知しつつ、「たぶん中立で無所属」くらいの謙虚さを保ちたい——それが正直なところです。どの政党にも、どの会派にも、推薦も受けていません。</p>
-        <p>「ギスギスした日常に、断定しない余白を」。これが出発点です。政治団体としての「たぶん無所属」は廃止しましたが、断定しないという姿勢は、理念として持ち続けていきます。</p>
+        <p>「信じたい『事実』だけ信じる人」が増えています。異なる価値観を否定し合う空気がはびこるなか、一定の客観性を持ち、是々非々の立場から、わかりやすい言葉で政治を語る。そんな人物が足りないように感じます。</p>
+        <p>私は記者・編集者として、あらゆる政治思想と向き合ってきました。完全な中立など難しいと承知しつつ、「たぶん中立で無所属」くらいの謙虚さを保ちたい——。</p>
+        <p>「ギスギスした日常に、断定しない余白を」。生まれ育った杉並の地から、それを実現したいと願っています。</p>
       </div>
     </div>
   </section>
@@ -193,58 +288,46 @@
   <!-- ========== LINKS ========== -->
   <section id="links">
     <div class="container">
-      <p class="section-en">LINKS</p>
-      <h2 class="section-title">SNS・リンク</h2>
-      <div class="links-grid">
+      <div class="sns-grid">
 
-        <a href="https://x.com/suginami_k" class="link-card fade-in" target="_blank" rel="noopener">
-          <div class="link-icon-wrap">
+        <a href="https://x.com/suginami_k" class="sns-item fade-in" target="_blank" rel="noopener">
+          <div class="sns-icon">
             <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.261 5.633 5.903-5.633Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
           </div>
-          <div class="link-text">
-            <div class="link-name">X（政治活動）</div>
-            <div class="link-handle">@suginami_k</div>
-          </div>
+          <div class="sns-name">X 政治</div>
+          <div class="sns-handle">@suginami_k</div>
         </a>
 
-        <a href="https://x.com/zurukid" class="link-card fade-in" target="_blank" rel="noopener" style="transition-delay:0.08s">
-          <div class="link-icon-wrap">
+        <a href="https://x.com/zurukid" class="sns-item fade-in" target="_blank" rel="noopener" style="transition-delay:0.05s">
+          <div class="sns-icon">
             <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.261 5.633 5.903-5.633Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
           </div>
-          <div class="link-text">
-            <div class="link-name">X（個人）</div>
-            <div class="link-handle">@zurukid</div>
-          </div>
+          <div class="sns-name">X 個人</div>
+          <div class="sns-handle">@zurukid</div>
         </a>
 
-        <a href="https://www.youtube.com/@zurukid" class="link-card fade-in" target="_blank" rel="noopener" style="transition-delay:0.16s">
-          <div class="link-icon-wrap">
+        <a href="https://www.youtube.com/@zurukid" class="sns-item fade-in" target="_blank" rel="noopener" style="transition-delay:0.1s">
+          <div class="sns-icon">
             <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
           </div>
-          <div class="link-text">
-            <div class="link-name">YouTube</div>
-            <div class="link-handle">@zurukid</div>
-          </div>
+          <div class="sns-name">YouTube</div>
+          <div class="sns-handle">@zurukid</div>
         </a>
 
-        <a href="https://www.facebook.com/suginamik/" class="link-card fade-in" target="_blank" rel="noopener" style="transition-delay:0.24s">
-          <div class="link-icon-wrap">
+        <a href="https://www.facebook.com/suginamik/" class="sns-item fade-in" target="_blank" rel="noopener" style="transition-delay:0.15s">
+          <div class="sns-icon">
             <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
           </div>
-          <div class="link-text">
-            <div class="link-name">Facebook</div>
-            <div class="link-handle">suginamik</div>
-          </div>
+          <div class="sns-name">Facebook</div>
+          <div class="sns-handle">suginamik</div>
         </a>
 
-        <a href="https://zuru.org/" class="link-card fade-in" target="_blank" rel="noopener" style="transition-delay:0.32s">
-          <div class="link-icon-wrap">
+        <a href="https://zuru.org/" class="sns-item fade-in" target="_blank" rel="noopener" style="transition-delay:0.2s">
+          <div class="sns-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
           </div>
-          <div class="link-text">
-            <div class="link-name">コラムニスト公式</div>
-            <div class="link-handle">zuru.org</div>
-          </div>
+          <div class="sns-name">公式サイト</div>
+          <div class="sns-handle">zuru.org</div>
         </a>
 
       </div>
@@ -258,11 +341,13 @@
         <div class="footer-logo">きどゆずる</div>
         <nav class="footer-nav">
           <a href="#profile">プロフィール</a>
-          <a href="#policies">政策</a>
+          <a href="#anshin">政策提言2026</a>
+          <a href="#policies">基本政策</a>
           <a href="#philosophy">理念</a>
-          <a href="#links">SNS</a>
+          <a href="#links">SNS・リンク</a>
         </nav>
-        <p class="footer-copy">© 2024 城戸 譲. All rights reserved.</p>
+        <p class="footer-disclaimer">このサイトは、特定の選挙立候補を目的とせず、趣味としての「政治家ごっこ」の一環として作成したものです。</p>
+        <p class="footer-copy">© 2026 きどゆずる. All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -278,6 +363,16 @@
       scrollHint.classList.toggle('hidden', past);
       mascotImg.classList.toggle('visible', past);
     }, { passive: true });
+
+    // Mascot jump on click
+    const mascot = document.querySelector('.mascot');
+    mascot.addEventListener('click', () => {
+      if (mascotImg.classList.contains('jumping')) return;
+      mascotImg.classList.add('jumping');
+      mascotImg.addEventListener('animationend', () => {
+        mascotImg.classList.remove('jumping');
+      }, { once: true });
+    });
 
     // Mobile menu
     const menuBtn = document.getElementById('menuBtn');
@@ -308,6 +403,47 @@
     document.querySelectorAll('.policy-card').forEach(card => {
       card.addEventListener('click', () => card.classList.toggle('open'));
     });
+
+    // Interactive timeline
+    (function() {
+      var items = document.querySelectorAll('.tl-item');
+      var detail = document.getElementById('tlDetail');
+      var detailYear = document.getElementById('tlDetailYear');
+      var detailLabel = document.getElementById('tlDetailLabel');
+      var detailText = document.getElementById('tlDetailText');
+      var closeBtn = document.getElementById('tlDetailClose');
+      var activeItem = null;
+
+      function openDetail(item) {
+        if (activeItem) activeItem.classList.remove('tl-item--active');
+        activeItem = item;
+        item.classList.add('tl-item--active');
+        var year = item.querySelector('.tl-year').textContent.trim();
+        var label = item.querySelector('.tl-label').textContent.trim();
+        detailYear.textContent = year;
+        detailLabel.textContent = label;
+        detailText.textContent = item.dataset.detail || '';
+        detail.hidden = false;
+        detail.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
+      function closeDetail() {
+        if (activeItem) { activeItem.classList.remove('tl-item--active'); activeItem = null; }
+        detail.hidden = true;
+      }
+
+      items.forEach(function(item) {
+        item.addEventListener('click', function() {
+          if (item === activeItem) { closeDetail(); return; }
+          openDetail(item);
+        });
+        item.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); item.click(); }
+        });
+      });
+
+      if (closeBtn) closeBtn.addEventListener('click', closeDetail);
+    })();
   </script>
 </body>
 </html>

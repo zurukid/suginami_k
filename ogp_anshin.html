@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Inter:wght@700;900&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 1200px;
+  height: 675px;
+  font-family: 'Noto Sans JP', sans-serif;
+  background: #FFD600;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ======= 外枠 ======= */
+.frame-outer {
+  position: absolute;
+  inset: 0;
+  border: 12px solid #3A0D22;
+  z-index: 100;
+  pointer-events: none;
+}
+.frame-inner {
+  position: absolute;
+  inset: 16px;
+  border: 3px solid #3A0D22;
+  z-index: 100;
+  pointer-events: none;
+}
+
+/* ======= 上部全幅：ダーク帯 ======= */
+.top-band {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 100px;
+  background: #3A0D22;
+  display: flex;
+  align-items: center;
+  padding: 0 28px;
+  gap: 20px;
+}
+
+.new-badge {
+  background: #FFD600;
+  color: #3A0D22;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  padding: 6px 16px;
+  border: 3px solid #3A0D22;
+  transform: rotate(-3deg);
+  flex-shrink: 0;
+}
+
+.top-headline {
+  font-size: 34px;
+  font-weight: 900;
+  color: #FFD600;
+  letter-spacing: 0.03em;
+  line-height: 1.1;
+  flex: 1;
+}
+.top-headline span {
+  font-size: 14px;
+  color: rgba(255,214,0,0.5);
+  display: block;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 2px;
+}
+
+.top-right-info {
+  text-align: right;
+  flex-shrink: 0;
+}
+.candidate-line {
+  font-size: 22px;
+  font-weight: 900;
+  color: #fff;
+}
+.role-line {
+  font-size: 11px;
+  color: rgba(255,255,255,0.45);
+  margin-top: 2px;
+}
+
+/* ======= 左カラム ======= */
+.left-col {
+  position: absolute;
+  top: 100px; bottom: 0; left: 0;
+  width: 380px;
+  background: #A8285E;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 28px;
+  gap: 0;
+}
+
+/* 斜めストライプ */
+.left-col::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -55deg,
+    transparent,
+    transparent 28px,
+    rgba(0,0,0,0.08) 28px,
+    rgba(0,0,0,0.08) 30px
+  );
+  pointer-events: none;
+}
+
+.main-title {
+  font-size: 122px;
+  font-weight: 900;
+  line-height: 0.82;
+  letter-spacing: -0.04em;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+  text-shadow: 4px 4px 0px rgba(0,0,0,0.4);
+}
+.main-title .yellow {
+  color: #FFD600;
+  display: inline-block;
+}
+
+.sub-box {
+  margin-top: 20px;
+  background: #3A0D22;
+  border: 3px solid #FFD600;
+  padding: 10px 14px;
+  position: relative;
+  z-index: 1;
+}
+.sub-box-text {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.6;
+}
+
+/* ======= 中央セパレーター ======= */
+.v-bar {
+  position: absolute;
+  top: 100px; bottom: 0;
+  left: 380px;
+  width: 12px;
+  background: #FFD600;
+}
+
+/* ======= 右エリア ======= */
+.right-area {
+  position: absolute;
+  top: 100px; bottom: 0;
+  left: 392px; right: 0;
+  background: #1A0510;
+  display: flex;
+  flex-direction: column;
+}
+
+/* リスク5マス */
+.risk-strip {
+  display: flex;
+  height: 150px;
+  border-bottom: 8px solid #FFD600;
+  flex-shrink: 0;
+}
+.risk-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-right: 4px solid rgba(255,214,0,0.25);
+  gap: 8px;
+  background: #2A0820;
+}
+.risk-box:last-child { border-right: none; }
+.risk-icon { font-size: 42px; line-height: 1; }
+.risk-label {
+  font-size: 17px;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: 0.04em;
+}
+
+/* ポイント3行 */
+.points-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 16px 20px 16px;
+}
+.pt {
+  display: flex;
+  align-items: stretch;
+  flex: 1;
+  background: rgba(255,255,255,0.04);
+  border: 2px solid rgba(255,214,0,0.2);
+  border-bottom: none;
+  overflow: hidden;
+}
+.pt:last-child { border-bottom: 2px solid rgba(255,214,0,0.2); }
+.pt-num {
+  background: #FFD600;
+  color: #1A0510;
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.pt-text {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  line-height: 1.45;
+}
+
+/* ======= 下部フッター帯 ======= */
+.footer-band {
+  position: absolute;
+  bottom: 0; left: 380px; right: 0;
+  height: 0;
+}
+
+/* ======= URL帯（右エリア内下部） ======= */
+.url-row {
+  background: #A8285E;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-shrink: 0;
+  border-top: 4px solid #FFD600;
+}
+.url-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  color: #FFD600;
+  letter-spacing: 0.08em;
+}
+.url-label {
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  margin-right: auto;
+  letter-spacing: 0.1em;
+}
+</style>
+</head>
+<body>
+
+<div class="frame-outer"></div>
+<div class="frame-inner"></div>
+
+<!-- 上部ダーク帯 -->
+<div class="top-band">
+  <div class="new-badge">2026 新提言</div>
+  <div class="top-headline">
+    <span>杉並あんしんマップ構想</span>
+    区民を襲うリスクを、今この瞬間に可視化する
+  </div>
+  <div class="top-right-info">
+    <div class="candidate-line">きどゆずる</div>
+    <div class="role-line">杉並区議会議員候補・無所属</div>
+  </div>
+</div>
+
+<!-- 左カラム：メインタイトル -->
+<div class="left-col">
+  <div class="main-title">
+    あんしんが<br><span class="yellow">見える</span><br>街に
+  </div>
+  <div class="sub-box">
+    <div class="sub-box-text">
+      気象API × オープンデータで<br>
+      災害リスクをリアルタイム可視化
+    </div>
+  </div>
+</div>
+
+<!-- 縦仕切り -->
+<div class="v-bar"></div>
+
+<!-- 右エリア -->
+<div class="right-area">
+  <!-- リスク5マス -->
+  <div class="risk-strip">
+    <div class="risk-box"><span class="risk-icon">🌊</span><span class="risk-label">水害</span></div>
+    <div class="risk-box"><span class="risk-icon">🏚️</span><span class="risk-label">震災</span></div>
+    <div class="risk-box"><span class="risk-icon">🔥</span><span class="risk-label">火災</span></div>
+    <div class="risk-box"><span class="risk-icon">⛰️</span><span class="risk-label">土砂</span></div>
+    <div class="risk-box"><span class="risk-icon">🌡️</span><span class="risk-label">熱中症</span></div>
+  </div>
+
+  <!-- ポイント -->
+  <div class="points-area">
+    <div class="pt">
+      <div class="pt-num">1</div>
+      <div class="pt-text">「〇〇橋が危険水位」→ 地図上の位置と今後の見通しで届ける</div>
+    </div>
+    <div class="pt">
+      <div class="pt-num">2</div>
+      <div class="pt-text">避難所の開設・閉鎖状況をリアルタイム更新</div>
+    </div>
+    <div class="pt">
+      <div class="pt-num">3</div>
+      <div class="pt-text">必要なデータの開示を国・東京都へ働きかける</div>
+    </div>
+  </div>
+
+  <!-- URL行 -->
+  <div class="url-row">
+    <div class="url-label">詳細・全政策はこちら</div>
+    <div class="url-text">s.zuru.org</div>
+  </div>
+</div>
+
+</body>
+</html>
