@@ -91,6 +91,9 @@
         </div>
       </div>
       <div class="tl-detail" id="tlDetail" hidden>
+        <button class="tl-detail-nav tl-detail-prev" id="tlDetailPrev" aria-label="前の出来事">
+          <svg viewBox="0 0 10 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="10" height="16"><path d="M8 2L2 8l6 6"/></svg>
+        </button>
         <div class="tl-detail-meta">
           <span class="tl-detail-year" id="tlDetailYear"></span>
           <strong class="tl-detail-label" id="tlDetailLabel"></strong>
@@ -98,6 +101,9 @@
         <p class="tl-detail-text" id="tlDetailText"></p>
         <button class="tl-detail-close" id="tlDetailClose" aria-label="閉じる">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+        <button class="tl-detail-nav tl-detail-next" id="tlDetailNext" aria-label="次の出来事">
+          <svg viewBox="0 0 10 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="10" height="16"><path d="M2 2l6 6-6 6"/></svg>
         </button>
       </div>
     </div>
@@ -406,36 +412,39 @@
 
     // Interactive timeline
     (function() {
-      var items = document.querySelectorAll('.tl-item');
+      var items = Array.prototype.slice.call(document.querySelectorAll('.tl-item'));
       var detail = document.getElementById('tlDetail');
       var detailYear = document.getElementById('tlDetailYear');
       var detailLabel = document.getElementById('tlDetailLabel');
       var detailText = document.getElementById('tlDetailText');
       var closeBtn = document.getElementById('tlDetailClose');
-      var activeItem = null;
+      var prevBtn = document.getElementById('tlDetailPrev');
+      var nextBtn = document.getElementById('tlDetailNext');
+      var activeIdx = -1;
 
-      function openDetail(item) {
-        if (activeItem) activeItem.classList.remove('tl-item--active');
-        activeItem = item;
+      function openDetail(idx) {
+        if (activeIdx >= 0) items[activeIdx].classList.remove('tl-item--active');
+        activeIdx = idx;
+        var item = items[idx];
         item.classList.add('tl-item--active');
-        var year = item.querySelector('.tl-year').textContent.trim();
-        var label = item.querySelector('.tl-label').textContent.trim();
-        detailYear.textContent = year;
-        detailLabel.textContent = label;
+        detailYear.textContent = item.querySelector('.tl-year').textContent.trim();
+        detailLabel.textContent = item.querySelector('.tl-label').textContent.trim();
         detailText.textContent = item.dataset.detail || '';
         detail.hidden = false;
-        detail.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        if (prevBtn) prevBtn.disabled = (idx === 0);
+        if (nextBtn) nextBtn.disabled = (idx === items.length - 1);
+        item.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
       }
 
       function closeDetail() {
-        if (activeItem) { activeItem.classList.remove('tl-item--active'); activeItem = null; }
+        if (activeIdx >= 0) { items[activeIdx].classList.remove('tl-item--active'); activeIdx = -1; }
         detail.hidden = true;
       }
 
-      items.forEach(function(item) {
+      items.forEach(function(item, i) {
         item.addEventListener('click', function() {
-          if (item === activeItem) { closeDetail(); return; }
-          openDetail(item);
+          if (i === activeIdx) { closeDetail(); return; }
+          openDetail(i);
         });
         item.addEventListener('keydown', function(e) {
           if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); item.click(); }
@@ -443,6 +452,11 @@
       });
 
       if (closeBtn) closeBtn.addEventListener('click', closeDetail);
+      if (prevBtn) prevBtn.addEventListener('click', function() { if (activeIdx > 0) openDetail(activeIdx - 1); });
+      if (nextBtn) nextBtn.addEventListener('click', function() { if (activeIdx < items.length - 1) openDetail(activeIdx + 1); });
+
+      // デフォルトで「杉並区生まれ」を開く
+      if (items.length > 0) openDetail(0);
     })();
   </script>
 </body>

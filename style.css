@@ -2473,8 +2473,43 @@ footer {
 }
 
 /* ============================================================
-   v23 — モバイル表示バグ修正
+   v23 — モバイル表示バグ修正 + タイムラインナビ + anshin数字カラー
 ============================================================ */
+
+/* タイムライン detail パネル: 両側にナビボタン用のpadding */
+.tl-detail {
+  padding: 14px 48px;
+}
+
+/* 左右ナビボタン */
+.tl-detail-nav {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--lb-400);
+  transition: color 0.15s, background 0.12s;
+}
+.tl-detail-nav:hover:not(:disabled) {
+  color: var(--lb-600);
+  background: rgba(168,40,94,0.07);
+}
+.tl-detail-nav:disabled {
+  opacity: 0.2;
+  cursor: default;
+}
+.tl-detail-prev { left: 0; border-radius: 0 0 0 var(--r, 6px); }
+.tl-detail-next { right: 0; border-radius: 0 var(--r, 6px) var(--r, 6px) 0; }
+
+/* anshin 01〜03 の数字色をバーガンディスケールに統一（リスクアイコン色と混同しないよう） */
+.anshin-points li:nth-child(1) { --point-color: var(--lb-600); }
+.anshin-points li:nth-child(2) { --point-color: var(--lb-900); }
+.anshin-points li:nth-child(3) { --point-color: var(--lb-1200); }
 
 /* タイムライン: 古い縦型タイムラインのgap:12pxがモバイルで残存→リセット */
 .tl-item { gap: 0; }
