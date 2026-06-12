@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="hero2.webp" type="image/webp" fetchpriority="high">
-  <link rel="stylesheet" href="style.css?v=29">
+  <link rel="stylesheet" href="style.css?v=30">
 </head>
 <body>
 
@@ -424,14 +424,7 @@
             <h3 id="area-panel-name"></h3>
             <p id="area-panel-sub"></p>
           </div>
-          <div class="area-panel-block">
-            <p class="area-panel-block-ttl">課題</p>
-            <ul id="area-panel-issues"></ul>
-          </div>
-          <div class="area-panel-block">
-            <p class="area-panel-block-ttl">提案</p>
-            <ul id="area-panel-proposals"></ul>
-          </div>
+          <div class="area-pairs" id="area-panel-pairs"></div>
         </div>
       </div>
     </div>
@@ -627,47 +620,101 @@
       var AREA_DATA = {
         ikusa: {
           name: '井草地域', sub: '下井草・井荻・上井草', color: '#5C8DBF',
-          issues: ['西武線の踏切渋滞', '商店街の空き店舗増加', 'バス路線が弱い'],
-          proposals: ['踏切の立体交差化推進', '若手事業者向け店舗マッチング', 'コミュニティバス充実']
+          pairs: [
+            { q: '西武新宿線の踏切による南北分断と渋滞。高架化（連続立体交差事業）の完了は2037年度予定の長期戦',
+              a: '事業の進捗を住民目線でチェックし、長い工事期間中の安全対策と情報公開を都・区に求める' },
+            { q: '上井草駅周辺は駅前広場が未整備のまま',
+              a: '高架化と一体で北口駅前広場とバリアフリー動線を先行整備' },
+            { q: '高架化後に生まれる高架下空間・側道の使い道が未定',
+              a: '駐輪場・子育て支援・地域拠点など、高架下の活用メニューを区民参加で計画' }
+          ]
         },
         nishiogi: {
           name: '西荻地域', sub: '西荻北・西荻南・上荻・今川・桃井・松庵・善福寺・宮前', color: '#47917F',
-          issues: ['個性的な商店街の後継者不足', '善福寺川沿いの浸水リスク', '自転車駐輪場不足'],
-          proposals: ['商店継承マッチング支援', '善福寺川流域の浸水対策', '駅周辺の立体駐輪場整備']
+          pairs: [
+            { q: '補助132号線の拡幅計画と、低層の個店が織りなす「西荻らしさ」との摩擦',
+              a: '事業の進め方とまちの将来像を住民参加で再検証し、個店の営業継続支援を徹底' },
+            { q: '善福寺川上流地下調節池計画への住民の不安。説明が不十分なまま事業が先行',
+              a: '都に丁寧な説明会の継続と、環境影響データの全面開示を求める' },
+            { q: '個性的な個店・商店街の後継者不足',
+              a: '店舗継承マッチングと若手出店者への支援で「西荻の個店文化」を次世代へ' }
+          ]
         },
         ogikubo: {
           name: '荻窪地域', sub: '荻窪・清水・南荻窪・天沼・本天沼', color: '#C8873A',
-          issues: ['放置自転車・駅前の混雑', '高齢者の買い物困難', '木造密集地域の防火対策'],
-          proposals: ['サイクルポート整備', '移動スーパー・宅配連携支援', '不燃化助成金の拡充']
+          pairs: [
+            { q: '区内唯一のJR地上駅。線路で南北のまちが分断され、行き来が不便',
+              a: '南北自由通路の実現を駅周辺まちづくりの最優先課題に位置づける' },
+            { q: '1日24万人が使う駅なのに駅前広場が手狭で、バス・タクシー・歩行者の動線が錯綜',
+              a: '交通結節機能を再編し、歩行者優先の駅前空間へ更新' },
+            { q: '天沼・本天沼周辺に残る木造密集地域と狭あい道路',
+              a: '不燃化・耐震化助成の利用促進と、狭あい道路の拡幅整備を加速' }
+          ]
         },
         asagaya: {
           name: '阿佐谷地域', sub: '阿佐谷北・阿佐谷南・成田東・成田西', color: '#6AA54E',
-          issues: ['区役所手続きの煩雑さ', '児童館の利用率低下', '七夕後の集客継続'],
-          proposals: ['行政手続きのデジタル化', '児童館のサードプレイス化', '通年イベント企画支援']
+          pairs: [
+            { q: '駅北東地区まちづくり（杉一小の病院跡地への移転改築）をめぐり、住民の賛否が分かれたまま',
+              a: '計画情報の徹底公開と、決定プロセスへの住民参加の仕組みを拡充' },
+            { q: 'けやき屋敷の樹林や中杉通りのけやき並木など「阿佐谷の緑」をどう次世代に引き継ぐか',
+              a: '開発時の樹木保全ルールづくりと、緑のネットワークの計画的な維持' },
+            { q: '七夕まつりの集客が一過性で、ふだんの商店街の回遊につながりにくい',
+              a: '通年の回遊企画と商店街のデジタル発信・キャッシュレス対応を支援' }
+          ]
         },
         koenji: {
           name: '高円寺地域', sub: '高円寺北・高円寺南・梅里・和田・堀ノ内・松ノ木', color: '#8B4FA8',
-          issues: ['夜間騒音と生活環境の課題', '空き店舗の増加', '若者の定住促進'],
-          proposals: ['深夜営業ガイドライン整備', 'クリエイター向け店舗支援', 'シェアハウス整備補助']
+          pairs: [
+            { q: '都内有数の木造住宅密集地域。震災時の延焼リスクが高い',
+              a: '耐震・不燃化助成の利用促進と、行き止まり道路の解消を優先' },
+            { q: '延焼遮断帯となる補助227号線の拡幅と、純情商店街などの街並み文化が対立',
+              a: '防災効果の検証を前提に、商店街文化を壊さない代替策を住民とともに検討' },
+            { q: '家賃上昇でライブハウス・古着店など若者文化の担い手が流出',
+              a: '空き店舗マッチングとクリエイター向け出店支援で文化の新陳代謝を守る' }
+          ]
         },
         takaido: {
           name: '高井戸地域', sub: '高井戸東・高井戸西・上高井戸・下高井戸・久我山・浜田山', color: '#457CA0',
-          issues: ['緑地・玉川上水の保全', '宅地開発による緑地減少', '京王線駅のバリアフリー不足'],
-          proposals: ['緑道ボランティア制度拡充', '開発許可での緑地保全強化', 'エレベーター設置補助']
+          pairs: [
+            { q: '京王線立体交差を契機とした下高井戸駅周辺まちづくりが、地区計画の延期で足踏み',
+              a: '住民主体の検討を尊重しつつ、区の調整役と情報提供を強化して前へ進める' },
+            { q: '環八と井の頭線が交差する高井戸駅周辺の歩行者動線と渋滞',
+              a: '駅前の歩行空間の改善と交差部の安全対策を優先整備' },
+            { q: '玉川上水・神田川沿いの緑の保全と、担い手の高齢化',
+              a: '高井戸公園とつなぐ緑道ネットワーク化と保全ボランティアの裾野拡大' }
+          ]
         },
         honan: {
           name: '方南・和泉地域', sub: '方南・和泉・永福・大宮', color: '#B55870',
-          issues: ['神田川・妙正寺川の浸水被害', '商店街の衰退と空き地', '中央道・首都高の騒音'],
-          proposals: ['河川の遊水地整備', '空き地のポップアップ市場活用', '防音・緑化バッファ帯整備']
+          pairs: [
+            { q: '神田川・善福寺川合流域は集中豪雨時の内水氾濫リスクが残る',
+              a: '環七地下調節池に加え、透水性舗装・雨水貯留など流域全体の対策を推進' },
+            { q: '方南銀座や沖縄タウン（和泉明店街）など、イベントで生まれたにぎわいの持続',
+              a: '商店街のイベント文化を関係人口づくり・ふるさと納税に接続して収益化' },
+            { q: '環七・方南通り沿いの交通量と通学路の安全',
+              a: '交差点改良と通学路の安全総点検、危険箇所のデータ公開' }
+          ]
         }
       };
 
-      function fillList(el, arr) {
+      function fillPairs(el, pairs) {
         el.innerHTML = '';
-        arr.forEach(function(t) {
-          var li = document.createElement('li');
-          li.textContent = t;
-          el.appendChild(li);
+        pairs.forEach(function(p, i) {
+          var item = document.createElement('div');
+          item.className = 'area-pair';
+          [['q', '課題', ''], ['a', '提案', ' area-pair-badge--plan']].forEach(function(def) {
+            var row = document.createElement('div');
+            row.className = def[0] === 'q' ? 'area-pair-issue' : 'area-pair-plan';
+            var badge = document.createElement('span');
+            badge.className = 'area-pair-badge' + def[2];
+            badge.textContent = def[1] + (i + 1);
+            var text = document.createElement('p');
+            text.textContent = p[def[0]];
+            row.appendChild(badge);
+            row.appendChild(text);
+            item.appendChild(row);
+          });
+          el.appendChild(item);
         });
       }
 
@@ -681,8 +728,7 @@
         overlay.style.setProperty('--area-color', data.color);
         document.getElementById('area-panel-name').textContent = data.name;
         document.getElementById('area-panel-sub').textContent = data.sub;
-        fillList(document.getElementById('area-panel-issues'), data.issues);
-        fillList(document.getElementById('area-panel-proposals'), data.proposals);
+        fillPairs(document.getElementById('area-panel-pairs'), data.pairs);
         overlay.hidden = false;
         document.body.style.overflow = 'hidden';
       }

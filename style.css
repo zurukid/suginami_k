@@ -2908,3 +2908,58 @@ footer::before {
   }
   html { scroll-behavior: auto; }
 }
+
+/* ============================================================
+   v30 — 地域マップ: 課題⇔提案ペア表示
+============================================================ */
+.area-overlay-sheet { max-width: 400px; }
+
+.area-pairs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.area-pair {
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--area-color, var(--lb-600));
+  border-radius: 0 var(--r) var(--r) 0;
+  background: #fff;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.area-pair-issue,
+.area-pair-plan {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.area-pair-badge {
+  flex-shrink: 0;
+  font-size: 0.6rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  padding: 2px 9px;
+  border-radius: 100px;
+  margin-top: 2px;
+  background: var(--bg-control);
+  color: var(--text-label);
+}
+.area-pair-badge--plan {
+  background: var(--area-color, var(--lb-600));
+  color: #fff;
+}
+.area-pair p {
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.65;
+  color: var(--lb-1200);
+}
+.area-pair-issue p { color: var(--text-label); }
+/* 提案行: 課題からの応答であることを示す軽い字下げ + 接続線 */
+.area-pair-plan {
+  margin-left: 10px;
+  padding-left: 10px;
+  border-left: 2px solid color-mix(in srgb, var(--area-color, var(--lb-600)) 30%, white);
+}
