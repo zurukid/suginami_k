@@ -8,7 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=28">
+  <link rel="preload" as="image" href="hero2.webp" type="image/webp" fetchpriority="high">
+  <link rel="stylesheet" href="style.css?v=29">
 </head>
 <body>
 
@@ -33,7 +34,10 @@
   <!-- ========== HERO ========== -->
   <section id="hero">
     <div class="hero-bg-fig">
-      <img src="hero2.png" alt="きどゆずる" onerror="this.style.display='none'">
+      <picture>
+        <source srcset="hero2.webp" type="image/webp">
+        <img src="hero2.png" alt="きどゆずる" fetchpriority="high" decoding="async" onerror="this.style.display='none'">
+      </picture>
     </div>
     <div class="hero-content animate-1">
       <p class="hero-role">杉並区民・無所属</p>
@@ -52,7 +56,10 @@
 
   <!-- ========== MASCOT (fixed) ========== -->
   <div class="mascot" aria-hidden="true">
-    <img src="photo.png" alt="" id="mascotImg">
+    <picture>
+      <source srcset="photo.webp" type="image/webp">
+      <img src="photo.png" alt="" id="mascotImg" decoding="async">
+    </picture>
   </div>
 
   <!-- ========== PROFILE (timeline strip) ========== -->
@@ -656,6 +663,15 @@
         }
       };
 
+      function fillList(el, arr) {
+        el.innerHTML = '';
+        arr.forEach(function(t) {
+          var li = document.createElement('li');
+          li.textContent = t;
+          el.appendChild(li);
+        });
+      }
+
       function showArea(id) {
         var data = AREA_DATA[id];
         if (!data) return;
@@ -666,10 +682,8 @@
         overlay.style.setProperty('--area-color', data.color);
         document.getElementById('area-panel-name').textContent = data.name;
         document.getElementById('area-panel-sub').textContent = data.sub;
-        document.getElementById('area-panel-issues').innerHTML =
-          data.issues.map(function() { return '<li></li>'; }).join('');
-        document.getElementById('area-panel-proposals').innerHTML =
-          data.proposals.map(function() { return '<li></li>'; }).join('');
+        fillList(document.getElementById('area-panel-issues'), data.issues);
+        fillList(document.getElementById('area-panel-proposals'), data.proposals);
         overlay.hidden = false;
         document.body.style.overflow = 'hidden';
       }
