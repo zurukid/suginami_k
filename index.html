@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=23">
+  <link rel="stylesheet" href="style.css?v=28">
 </head>
 <body>
 
@@ -20,6 +20,7 @@
         <a href="#profile" onclick="closeMenu()">プロフィール</a>
         <a href="#ijime" onclick="closeMenu()">政策提言2026</a>
         <a href="#policies" onclick="closeMenu()">基本政策</a>
+        <a href="#area-map" onclick="closeMenu()">地域マップ</a>
         <a href="#philosophy" onclick="closeMenu()">理念</a>
         <a href="#links" onclick="closeMenu()">SNS・リンク</a>
       </nav>
@@ -328,6 +329,108 @@
     </div>
   </section>
 
+  <!-- ========== AREA MAP ========== -->
+  <section id="area-map">
+    <div class="container">
+      <div class="area-map-wrap fade-in" style="transition-delay:0.06s">
+          <svg id="suginami-map" viewBox="0 0 480 476" xmlns="http://www.w3.org/2000/svg" aria-label="杉並区7地域マップ">
+            <rect width="480" height="476" fill="#E8E8ED" rx="6"/>
+            <path class="area-region" data-area="ikusa" fill="#9DBBD9" d="M234.9,69.6L218.0,32.5L218.5,27.1L201.6,24.7L194.1,26.1L195.8,18.3L176.9,24.5L178.7,27.5L172.7,29.2L171.8,26.5L139.0,37.2L98.0,55.4L98.7,58.2L95.7,58.7L86.9,68.8L75.0,74.8L70.6,79.2L65.5,80.0L65.8,83.2L55.2,106.0L70.1,112.7L119.7,99.3L183.8,98.3L273.6,132.0L280.0,115.1L258.8,112.5L253.9,103.7L256.4,94.0L250.2,87.8L245.4,90.9L241.6,87.0L234.9,69.6Z"/>
+            <path class="area-region" data-area="nishiogi" fill="#91BDB2" d="M49.2,103.0L36.0,91.6L26.4,92.6L14.5,99.2L9.5,106.2L8.5,113.2L9.0,118.1L18.3,137.8L17.2,147.9L36.1,162.2L52.1,179.0L64.0,187.6L49.4,218.9L35.3,258.9L58.0,269.3L93.8,279.4L113.1,293.4L122.2,297.5L128.8,298.9L137.3,297.7L156.3,292.7L162.5,293.4L174.4,298.9L177.8,272.1L158.8,255.1L119.5,234.8L130.9,201.6L134.3,197.3L145.6,197.0L142.1,192.0L128.1,183.0L129.3,170.1L126.3,168.5L107.0,167.9L97.9,172.1L98.5,156.4L96.4,149.7L97.7,144.3L87.2,137.9L70.1,112.7L49.2,103.0Z M107.0,257.0L107.7,255.3L107.0,257.0Z"/>
+            <path class="area-region" data-area="ogikubo" fill="#DEB789" d="M159.7,99.4L119.7,99.3L70.1,112.7L87.2,137.9L97.7,144.3L96.4,149.7L98.5,156.4L97.9,172.1L106.3,168.0L128.4,169.3L129.8,171.6L128.1,183.0L142.1,192.0L145.6,197.0L134.3,197.3L130.9,201.6L119.5,234.8L160.2,256.1L181.5,275.2L202.0,289.5L206.7,281.5L218.3,271.6L225.7,273.2L232.2,269.8L242.6,252.2L238.1,227.6L237.5,215.9L239.3,206.4L218.7,194.4L242.6,193.7L251.6,177.5L243.3,147.3L269.8,141.2L273.6,132.0L184.4,98.4L159.7,99.4Z"/>
+            <path class="area-region" data-area="asagaya" fill="#A6C995" d="M273.1,135.5L269.8,141.2L243.3,147.3L251.6,177.5L242.6,193.7L218.7,194.4L239.3,206.4L237.5,215.9L238.1,227.6L242.6,252.2L232.2,269.8L225.7,273.2L218.3,271.6L206.7,281.5L202.0,289.5L221.2,302.4L268.3,325.1L285.8,337.3L289.7,322.6L287.7,312.0L292.0,311.6L301.1,316.6L300.2,310.6L303.2,304.7L299.3,295.2L300.9,291.7L306.9,287.5L307.7,275.3L309.1,276.3L311.9,273.9L313.1,269.0L304.1,249.5L296.1,238.7L297.1,236.5L322.0,239.3L322.0,203.3L327.6,190.4L315.1,190.9L311.7,187.8L311.3,183.2L320.0,149.3L315.7,147.9L308.9,141.1L309.7,127.0L286.5,116.3L280.0,115.1L273.1,135.5Z"/>
+            <path class="area-region" data-area="koenji" fill="#B995CB" d="M317.5,160.1L311.3,183.2L311.7,187.8L315.1,190.9L327.6,190.4L322.0,203.3L322.0,239.3L297.1,236.5L296.1,238.7L304.1,249.5L306.8,258.0L313.1,268.1L311.9,273.9L309.1,276.3L307.7,275.3L306.9,287.5L300.9,291.7L299.3,295.2L303.2,304.7L300.2,310.6L301.1,316.6L307.5,324.9L314.7,321.8L314.9,323.4L323.5,324.3L326.7,311.6L324.4,298.2L327.0,296.1L335.9,295.8L344.7,299.3L330.7,325.4L336.5,326.2L341.5,330.0L339.6,332.3L339.6,337.2L364.7,339.5L391.6,334.0L387.8,315.0L392.2,313.1L413.0,311.8L426.4,303.3L429.9,295.8L442.2,287.8L445.0,282.8L449.6,281.6L447.0,272.6L447.2,266.1L443.9,267.7L439.5,259.1L437.0,260.1L432.5,254.6L413.2,259.0L410.0,248.1L413.7,247.4L413.4,243.2L418.3,244.5L420.7,232.5L419.5,229.3L417.7,229.3L418.6,224.8L415.9,223.3L416.1,217.0L411.9,215.8L414.3,208.2L413.4,193.2L397.6,190.7L397.1,164.1L376.8,165.1L376.7,163.8L361.5,166.0L359.6,162.8L320.0,149.3L317.5,160.1Z"/>
+            <path class="area-region" data-area="takaido" fill="#8FB0C6" d="M88.0,277.5L56.0,268.5L24.8,253.8L17.3,263.4L23.8,269.5L41.5,280.8L55.2,298.2L49.7,297.1L49.9,303.6L43.0,305.8L37.6,311.0L44.0,316.8L41.9,318.6L42.6,320.6L48.2,322.5L45.8,328.2L50.8,334.5L49.8,337.0L55.8,341.1L81.3,343.9L103.8,352.0L124.4,372.4L127.9,382.5L128.9,380.3L133.3,379.7L136.8,388.7L135.4,391.2L137.6,391.0L137.9,395.8L135.5,395.8L137.1,420.6L138.0,417.6L144.6,416.3L144.8,418.5L148.9,418.9L148.3,422.1L160.7,417.9L162.1,422.7L166.7,427.6L171.8,424.8L169.9,428.5L173.0,427.5L175.9,422.8L176.9,405.2L159.6,403.6L160.0,397.4L149.3,389.8L142.6,379.3L145.1,379.2L151.6,381.3L151.6,386.1L153.3,386.1L155.3,382.6L158.9,386.4L202.5,404.6L211.6,412.2L211.5,418.0L220.2,419.7L220.6,426.9L262.4,433.7L285.1,443.8L284.5,447.5L289.0,448.5L297.9,449.1L309.3,443.8L309.9,430.4L313.1,421.3L296.8,417.6L282.3,405.2L273.6,388.9L272.2,378.9L268.1,379.1L266.3,369.5L271.6,360.3L274.2,361.2L280.3,355.3L274.9,351.9L279.2,331.9L266.7,324.2L219.8,301.6L205.6,293.1L193.5,282.3L177.8,272.1L174.4,298.9L162.5,293.4L156.3,292.7L126.5,298.6L115.0,294.6L95.5,280.2L88.0,277.5Z"/>
+            <path class="area-region" data-area="honan" fill="#D39BA9" d="M314.7,321.8L307.5,324.9L299.8,315.2L291.4,311.5L287.7,312.0L289.7,322.6L286.0,337.1L279.2,331.9L274.9,351.9L280.3,355.3L274.2,361.2L271.6,360.3L266.3,369.5L268.1,379.1L272.2,378.9L273.6,388.9L282.3,405.2L296.8,417.6L313.1,421.3L309.9,430.4L309.9,438.0L330.7,434.3L355.7,420.9L382.0,416.1L416.1,403.7L417.7,397.9L415.3,391.7L417.6,385.4L429.5,378.9L426.1,369.5L432.5,371.1L433.6,363.4L428.5,363.8L428.9,358.9L421.6,359.2L417.0,353.9L407.2,357.6L405.3,356.8L411.3,348.7L408.3,347.4L408.1,342.7L404.7,341.8L404.2,335.3L410.8,328.6L409.0,324.0L407.2,324.9L406.9,322.7L404.8,322.4L403.6,312.7L392.2,313.1L387.8,315.0L391.6,334.0L364.7,339.5L341.0,337.9L339.6,337.2L339.6,332.3L341.5,330.0L336.5,326.2L330.7,325.4L344.7,299.3L335.9,295.8L327.0,296.1L324.0,299.6L326.7,311.6L323.5,324.3L314.9,323.4L314.7,321.8Z"/>
+
+            <path class="train-line train-chuo" d="M25,200.5L85.9,200.5L194.7,196.6L277.3,193.3L354.7,188.7L456,187.0"/>
+            <path class="train-line train-seibu" d="M252,69.7L222.9,68.5L169.1,62.5L104.5,58.6L68,56.4"/>
+            <path class="train-line train-keio" d="M20,301.5L85.9,303.7L128.5,325.4L167.5,335.3L234.7,345.8L277.3,364.8L315.2,380.6L366,419L396,442"/>
+            <path class="train-line train-marunouchi" d="M194.7,196.6L268,210L358,217L416,219L456,221"/>
+            <path class="train-line train-marunouchi" d="M456,255L394,278"/>
+            <path class="train-line train-keio-main" d="M456,384L366,419L291,448L241,430L173,427L145,430"/>
+            <circle cx="85.9" cy="200.5" r="3.5" fill="#fff" stroke="#E65C14" stroke-width="1.5"/>
+            <text x="85.9" y="192.5" class="station-label" text-anchor="middle">西荻窪</text>
+            <circle cx="194.7" cy="196.6" r="5" fill="#fff" stroke="#E65C14" stroke-width="2"/>
+            <text x="194.7" y="188.6" class="station-label" text-anchor="middle">荻窪</text>
+            <circle cx="277.3" cy="193.3" r="3.5" fill="#fff" stroke="#E65C14" stroke-width="1.5"/>
+            <text x="277.3" y="185.3" class="station-label" text-anchor="middle">阿佐ヶ谷</text>
+            <circle cx="354.7" cy="188.7" r="3.5" fill="#fff" stroke="#E65C14" stroke-width="1.5"/>
+            <text x="354.7" y="180.7" class="station-label" text-anchor="middle">高円寺</text>
+            <circle cx="222.9" cy="68.5" r="3" fill="#fff" stroke="#1458C8" stroke-width="1.5"/>
+            <text x="222.9" y="80.5" class="station-label" text-anchor="middle">下井草</text>
+            <circle cx="169.1" cy="62.5" r="3" fill="#fff" stroke="#1458C8" stroke-width="1.5"/>
+            <text x="169.1" y="54.5" class="station-label" text-anchor="middle">井荻</text>
+            <circle cx="104.5" cy="58.6" r="3" fill="#fff" stroke="#1458C8" stroke-width="1.5"/>
+            <text x="104.5" y="70.6" class="station-label" text-anchor="middle">上井草</text>
+            <circle cx="85.9" cy="303.7" r="3" fill="#fff" stroke="#2A9D8A" stroke-width="1.5"/>
+            <text x="85.9" y="295.7" class="station-label" text-anchor="middle">久我山</text>
+            <circle cx="128.5" cy="325.4" r="3" fill="#fff" stroke="#2A9D8A" stroke-width="1.5"/>
+            <text x="128.5" y="338.4" class="station-label" text-anchor="middle">富士見ヶ丘</text>
+            <circle cx="167.5" cy="335.3" r="3" fill="#fff" stroke="#2A9D8A" stroke-width="1.5"/>
+            <text x="167.5" y="327.3" class="station-label" text-anchor="middle">高井戸</text>
+            <circle cx="234.7" cy="345.8" r="3" fill="#fff" stroke="#2A9D8A" stroke-width="1.5"/>
+            <text x="234.7" y="358.8" class="station-label" text-anchor="middle">浜田山</text>
+            <circle cx="277.3" cy="364.8" r="3" fill="#fff" stroke="#2A9D8A" stroke-width="1.5"/>
+            <text x="277.3" y="356.8" class="station-label" text-anchor="middle">西永福</text>
+            <circle cx="315.2" cy="380.6" r="3" fill="#fff" stroke="#2A9D8A" stroke-width="1.5"/>
+            <text x="315.2" y="393.6" class="station-label" text-anchor="middle">永福町</text>
+            <circle cx="366" cy="419" r="5" fill="#fff" stroke="#2A9D8A" stroke-width="2"/>
+            <text x="366" y="431" class="station-label" text-anchor="middle">明大前</text>
+            <circle cx="268" cy="210" r="3" fill="#fff" stroke="#E50012" stroke-width="1.5"/>
+            <text x="268" y="222" class="station-label" text-anchor="middle">南阿佐ヶ谷</text>
+            <circle cx="358" cy="217" r="3" fill="#fff" stroke="#E50012" stroke-width="1.5"/>
+            <text x="358" y="229" class="station-label" text-anchor="middle">新高円寺</text>
+            <circle cx="416" cy="219" r="3" fill="#fff" stroke="#E50012" stroke-width="1.5"/>
+            <text x="416" y="231" class="station-label" text-anchor="middle">東高円寺</text>
+            <circle cx="394" cy="278" r="3" fill="#fff" stroke="#E50012" stroke-width="1.5"/>
+            <text x="394" y="270" class="station-label" text-anchor="middle">方南町</text>
+            <circle cx="291" cy="448" r="3" fill="#fff" stroke="#E22B6E" stroke-width="1.5"/>
+            <text x="291" y="440" class="station-label" text-anchor="middle">下高井戸</text>
+            <circle cx="241" cy="430" r="3" fill="#fff" stroke="#E22B6E" stroke-width="1.5"/>
+            <text x="241" y="422" class="station-label" text-anchor="middle">桜上水</text>
+            <circle cx="173" cy="427" r="3" fill="#fff" stroke="#E22B6E" stroke-width="1.5"/>
+            <text x="173" y="419" class="station-label" text-anchor="middle">八幡山</text>
+            <text class="area-label" x="167" y="78" text-anchor="middle">井草</text>
+            <text class="area-label" x="72" y="218" text-anchor="middle">西荻</text>
+            <text class="area-label" x="178" y="172" text-anchor="middle">荻窪</text>
+            <text class="area-label" x="260" y="262" text-anchor="middle">阿佐谷</text>
+            <text class="area-label" x="367" y="258" text-anchor="middle">高円寺</text>
+            <text class="area-label" x="176" y="366" text-anchor="middle">高井戸</text>
+            <text class="area-label area-label-sm" x="344" y="378" text-anchor="middle">方南・</text>
+            <text class="area-label area-label-sm" x="344" y="391" text-anchor="middle">和泉</text>
+            <defs>
+              <filter id="hdr-shadow" x="-10%" y="-10%" width="120%" height="120%">
+                <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#3A0D22" flood-opacity="0.13"/>
+              </filter>
+            </defs>
+            <!-- Section header card -->
+            <rect x="338" y="11" width="135" height="58" rx="7" fill="#3A0D22" filter="url(#hdr-shadow)" pointer-events="none"/>
+            <text x="405" y="35" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="12" font-weight="900" fill="#fff" pointer-events="none">地域ごとの政策</text>
+            <text x="405" y="52" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="12" font-weight="900" fill="#fff" pointer-events="none">どんどん提言予定</text>
+          </svg>
+      </div>
+      <div id="area-overlay" class="area-overlay" hidden>
+        <div class="area-overlay-backdrop" id="area-overlay-backdrop"></div>
+        <div class="area-overlay-sheet">
+          <button class="area-overlay-close" id="area-overlay-close" aria-label="閉じる">✕</button>
+          <div class="area-panel-header">
+            <h3 id="area-panel-name"></h3>
+            <p id="area-panel-sub"></p>
+          </div>
+          <div class="area-panel-block">
+            <p class="area-panel-block-ttl">課題</p>
+            <ul id="area-panel-issues"></ul>
+          </div>
+          <div class="area-panel-block">
+            <p class="area-panel-block-ttl">提案</p>
+            <ul id="area-panel-proposals"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ========== PHILOSOPHY ========== -->
   <section id="philosophy">
     <div class="container">
@@ -398,6 +501,7 @@
           <a href="#profile">プロフィール</a>
           <a href="#ijime">政策提言2026</a>
           <a href="#policies">基本政策</a>
+          <a href="#area-map">地域マップ</a>
           <a href="#philosophy">理念</a>
           <a href="#links">SNS・リンク</a>
         </nav>
@@ -510,6 +614,79 @@
 
       // デフォルトで「杉並区生まれ」を開く
       if (items.length > 0) openDetail(0);
+    })();
+
+    // Area map
+    (function() {
+      var AREA_DATA = {
+        ikusa: {
+          name: '井草地域', sub: '下井草・井荻・上井草', color: '#5C8DBF',
+          issues: ['西武線の踏切渋滞', '商店街の空き店舗増加', 'バス路線が弱い'],
+          proposals: ['踏切の立体交差化推進', '若手事業者向け店舗マッチング', 'コミュニティバス充実']
+        },
+        nishiogi: {
+          name: '西荻地域', sub: '西荻北・西荻南・松庵・善福寺・宮前', color: '#47917F',
+          issues: ['個性的な商店街の後継者不足', '善福寺川沿いの浸水リスク', '自転車駐輪場不足'],
+          proposals: ['商店継承マッチング支援', '善福寺川流域の浸水対策', '駅周辺の立体駐輪場整備']
+        },
+        ogikubo: {
+          name: '荻窪地域', sub: '荻窪・上荻・今川・桃井・清水・南荻窪・天沼・本天沼', color: '#C8873A',
+          issues: ['放置自転車・駅前の混雑', '高齢者の買い物困難', '木造密集地域の防火対策'],
+          proposals: ['サイクルポート整備', '移動スーパー・宅配連携支援', '不燃化助成金の拡充']
+        },
+        asagaya: {
+          name: '阿佐谷地域', sub: '阿佐谷北・阿佐谷南・成田東・成田西', color: '#6AA54E',
+          issues: ['区役所手続きの煩雑さ', '児童館の利用率低下', '七夕後の集客継続'],
+          proposals: ['行政手続きのデジタル化', '児童館のサードプレイス化', '通年イベント企画支援']
+        },
+        koenji: {
+          name: '高円寺地域', sub: '高円寺北・高円寺南・梅里・和田・堀ノ内・松ノ木', color: '#8B4FA8',
+          issues: ['夜間騒音と生活環境の課題', '空き店舗の増加', '若者の定住促進'],
+          proposals: ['深夜営業ガイドライン整備', 'クリエイター向け店舗支援', 'シェアハウス整備補助']
+        },
+        takaido: {
+          name: '高井戸地域', sub: '高井戸東・高井戸西・上高井戸・下高井戸・久我山・浜田山', color: '#457CA0',
+          issues: ['緑地・玉川上水の保全', '宅地開発による緑地減少', '京王線駅のバリアフリー不足'],
+          proposals: ['緑道ボランティア制度拡充', '開発許可での緑地保全強化', 'エレベーター設置補助']
+        },
+        honan: {
+          name: '方南・和泉地域', sub: '方南・和泉・永福・大宮', color: '#B55870',
+          issues: ['神田川・妙正寺川の浸水被害', '商店街の衰退と空き地', '中央道・首都高の騒音'],
+          proposals: ['河川の遊水地整備', '空き地のポップアップ市場活用', '防音・緑化バッファ帯整備']
+        }
+      };
+
+      function showArea(id) {
+        var data = AREA_DATA[id];
+        if (!data) return;
+        document.querySelectorAll('.area-region').forEach(function(el) {
+          el.classList.toggle('selected', el.dataset.area === id);
+        });
+        var overlay = document.getElementById('area-overlay');
+        overlay.style.setProperty('--area-color', data.color);
+        document.getElementById('area-panel-name').textContent = data.name;
+        document.getElementById('area-panel-sub').textContent = data.sub;
+        document.getElementById('area-panel-issues').innerHTML =
+          data.issues.map(function() { return '<li></li>'; }).join('');
+        document.getElementById('area-panel-proposals').innerHTML =
+          data.proposals.map(function() { return '<li></li>'; }).join('');
+        overlay.hidden = false;
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeOverlay() {
+        document.getElementById('area-overlay').hidden = true;
+        document.querySelectorAll('.area-region').forEach(function(el) {
+          el.classList.remove('selected');
+        });
+        document.body.style.overflow = '';
+      }
+
+      document.getElementById('area-overlay-close').addEventListener('click', closeOverlay);
+      document.getElementById('area-overlay-backdrop').addEventListener('click', closeOverlay);
+      document.querySelectorAll('.area-region').forEach(function(el) {
+        el.addEventListener('click', function() { showArea(el.dataset.area); });
+      });
     })();
   </script>
 </body>

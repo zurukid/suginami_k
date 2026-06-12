@@ -4,6 +4,8 @@
    https://www.digital.go.jp/resources/dashboard-guidebook
 ============================================================ */
 
+[hidden] { display: none !important; }
+
 /* ---- Design Tokens (Burgundy Palette) ---- */
 :root {
   /* Text */
@@ -2590,4 +2592,164 @@ footer {
 }
 @media (max-width: 600px) {
   .ijime-pillars { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   AREA MAP SECTION
+============================================================ */
+#area-map {
+  background: #fff;
+  padding: 56px 0;
+  border-bottom: 1px solid var(--border);
+}
+#area-map > .container { max-width: 900px; }
+
+.area-map-intro {
+  font-size: 0.88rem;
+  color: var(--text-label);
+  margin-bottom: 1.5rem;
+}
+
+.area-map-wrap {
+  max-width: 100%;
+}
+
+#suginami-map {
+  width: 100%;
+  display: block;
+  cursor: pointer;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.area-region {
+  transition: filter 0.14s;
+  cursor: pointer;
+  stroke: rgba(255,255,255,0.25);
+  stroke-width: 0.6;
+  stroke-linejoin: round;
+}
+.area-region:hover { filter: brightness(1.12); }
+.area-region.selected {
+  stroke: #fff;
+  stroke-width: 3;
+  filter: brightness(0.88);
+}
+
+.train-line {
+  fill: none;
+  stroke-linecap: round;
+  pointer-events: none;
+}
+.train-chuo       { stroke: #E65C14; stroke-width: 2.8; }
+.train-seibu      { stroke: #1458C8; stroke-width: 2.4; }
+.train-keio       { stroke: #2A9D8A; stroke-width: 2.4; }
+.train-marunouchi { stroke: #E50012; stroke-width: 2.4; }
+.train-keio-main  { stroke: #E22B6E; stroke-width: 2.4; }
+
+.station-label {
+  font-size: 7.5px;
+  fill: #222;
+  pointer-events: none;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 500;
+}
+
+.area-label {
+  font-size: 10px;
+  font-weight: 700;
+  fill: #fff;
+  pointer-events: none;
+  text-anchor: middle;
+  font-family: 'Noto Sans JP', sans-serif;
+  paint-order: stroke;
+  stroke: rgba(0,0,0,0.35);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}
+.area-label-sm { font-size: 8.5px; }
+
+/* Overlay */
+.area-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.area-overlay-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+}
+.area-overlay-sheet {
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 16px 18px 22px;
+  max-height: 60vh;
+  overflow-y: auto;
+  border-top: 4px solid var(--area-color, #888);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+}
+.area-overlay-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: var(--text-label);
+  cursor: pointer;
+  padding: 3px 7px;
+  border-radius: 4px;
+  line-height: 1;
+}
+.area-overlay-close:hover { background: var(--lb-100); }
+
+.area-panel-header {
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 3px solid var(--area-color, var(--lb-600));
+}
+.area-panel-header h3 {
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: var(--lb-1200);
+  margin-bottom: 3px;
+}
+.area-panel-header p {
+  font-size: 0.72rem;
+  color: var(--text-label);
+}
+.area-panel-block { margin-bottom: 12px; }
+.area-panel-block-ttl {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--area-color, var(--lb-600));
+  margin-bottom: 6px;
+}
+.area-panel-block ul { list-style: none; padding: 0; margin: 0; }
+.area-panel-block ul li {
+  font-size: 0.82rem;
+  padding: 5px 0 5px 1.1rem;
+  position: relative;
+  color: var(--lb-1200);
+  line-height: 1.5;
+  border-bottom: 1px solid var(--border);
+}
+.area-panel-block ul li:last-child { border-bottom: none; }
+.area-panel-block ul li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--area-color, var(--lb-600));
+  font-size: 0.7rem;
+  top: 6px;
 }
