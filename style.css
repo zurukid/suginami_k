@@ -2921,8 +2921,7 @@ footer::before {
 }
 .area-pair {
   border: 1px solid var(--border);
-  border-left: 3px solid var(--area-color, var(--lb-600));
-  border-radius: 0 var(--r) var(--r) 0;
+  border-radius: var(--r);
   background: #fff;
   padding: 10px 12px;
   display: flex;
