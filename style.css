@@ -2957,9 +2957,9 @@ footer::before {
   color: var(--lb-1200);
 }
 .area-pair-issue p { color: var(--text-label); }
-/* 提案行: 課題からの応答であることを示す軽い字下げ + 接続線 */
+/* 提案行: 課題と同じ左位置で並べる */
 .area-pair-plan {
-  margin-left: 10px;
-  padding-left: 10px;
-  border-left: 2px solid color-mix(in srgb, var(--area-color, var(--lb-600)) 30%, white);
+  margin-left: 0;
+  padding-left: 0;
+  border-left: none;
 }

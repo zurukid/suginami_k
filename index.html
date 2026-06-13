@@ -707,7 +707,7 @@
             row.className = def[0] === 'q' ? 'area-pair-issue' : 'area-pair-plan';
             var badge = document.createElement('span');
             badge.className = 'area-pair-badge' + def[2];
-            badge.textContent = def[0] === 'q' ? def[1] + (i + 1) : def[1];
+            badge.textContent = def[1];
             var text = document.createElement('p');
             text.textContent = p[def[0]];
             row.appendChild(badge);
